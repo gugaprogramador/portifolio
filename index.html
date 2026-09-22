@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guga Programador | Portfólio Full Stack & Python</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* ---- Tokens da Paleta Gueto Studio ---- */
+  :root {
+    --bg: #0B0B0D;
+    --panel: #17171B;
+    --line: rgba(255, 255, 255, 0.09);
+    --silver-1: #F3F3F6;
+    --silver-2: #ABABB4;
+    --silver-3: #55555D;
+    --text: #ECECEE;
+    --muted: #8C8C93;
+    --accent: #00E676; /* Verde Terminal Python */
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-tag: 'Permanent Marker', cursive;
+    --font-body: 'Inter', sans-serif;
+    --font-code: 'Fira Code', monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- Container Global Centralizado ---- */
+  .container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ---- Hero Section ---- */
+  .hero {
+    width: 100%;
+    padding: 60px 0 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .avatar-box {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--silver-1), var(--silver-3));
+    margin-bottom: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+
+  .avatar-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .hero-tag {
+    font-family: var(--font-tag);
+    font-size: 16px;
+    color: var(--silver-2);
+    margin-bottom: 6px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 0.95;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--silver-1) 20%, var(--silver-3) 55%, var(--silver-1) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .badge-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .badge {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    color: var(--silver-2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ---- Títulos Globais ---- */
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 0.06em;
+    color: var(--silver-1);
+    text-align: center;
+    margin: 40px 0 16px;
+    width: 100%;
+    position: relative;
+    padding-bottom: 8px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--silver-2), transparent);
+  }
+
+  /* ---- Animação / Terminal Python Interativo ---- */
+  .python-box {
+    width: 100%;
+    background: #000000;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  }
+
+  .terminal-header {
+    background: var(--panel);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-red { background: #FF5F56; }
+  .dot-yellow { background: #FFBD2E; }
+  .dot-green { background: #27C93F; }
+
+  .terminal-title {
+    font-family: var(--font-code);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .terminal-body {
+    padding: 18px;
+    font-family: var(--font-code);
+    font-size: 13px;
+    color: var(--text);
+    text-align: left;
+    min-height: 180px;
+  }
+
+  .python-code {
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .python-code .keyword { color: #FF79C6; }
+  .python-code .func { color: #50FA7B; }
+  .python-code .string { color: #F1FA8C; }
+
+  .terminal-output {
+    color: var(--accent);
+    margin-top: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .btn-run {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--bg);
+    background: linear-gradient(135deg, var(--silver-1), var(--silver-2));
+    transition: transform 0.2s, filter 0.2s;
+    margin: 12px auto;
+    display: block;
+  }
+
+  .btn-run:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  /* ---- Grelha de Projetos (Apenas Gueto Studio) ---- */
+  .projects-grid {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--silver-2);
+  }
+
+  .project-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--silver-1);
+    margin-bottom: 10px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    background: rgba(255,255,255,0.05);
+    color: var(--silver-2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: var(--font-code);
+  }
+
+  .btn-project {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--silver-1);
+    padding: 10px 22px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .btn-project:hover {
+    background: var(--silver-2);
+  }
+
+  /* ---- Footer ---- */
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+    width: 100%;
+  }
+
+  /* ---- Responsividade para Telemóvel ---- */
+  @media (max-width: 480px) {
+    .hero-title { font-size: 42px; }
+    .hero-subtitle { font-size: 13px; }
+    .terminal-body { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="avatar-box">
+      <img src="https://github.com/gugaprogramador.png" alt="Guga Programador">
+    </div>
+    <p class="hero-tag">desenvolvedor de software</p>
+    <h1 class="hero-title">GUGA PROGRAMADOR</h1>
+    <p class="hero-subtitle">
+      Criando aplicações web modernas com foco em experiência mobile, integração de APIs financeiras e automações inteligentes em Python.
+    </p>
+
+    <div class="badge-container">
+      <span class="badge">Python</span>
+      <span class="badge">JavaScript</span>
+      <span class="badge">Vercel & Serverless</span>
+      <span class="badge">Pix API</span>
+    </div>
+  </header>
+
+  <!-- SEÇÃO ANIMADA E INTERATIVA DE PYTHON -->
+  <h2 class="section-title">Animação & Script Python</h2>
+
+  <div class="python-box">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <span class="terminal-title">interactive_portfolio.py</span>
+      <span></span>
+    </div>
+    <div class="terminal-body">
+      <div class="python-code">
+        <span class="keyword">import</span> time<br><br>
+        <span class="keyword">def</span> <span class="func">apresentar_dev</span>():<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;skills = [<span class="string">'Python'</span>, <span class="string">'Full Stack'</span>, <span class="string">'Pix API'</span>, <span class="string">'UI/UX'</span>]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> skill <span class="keyword">in</span> skills:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="func">print</span>(f<span class="string">"[+] Carregando competência: {skill}..."</span>)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span class="func">print</span>(<span class="string">"\n>>> Pronto para criar a sua próxima solução!"</span>)
+      </div>
+      <div class="terminal-output" id="terminal-output">
+        Clique no botão abaixo para executar a simulação em tempo real...
+      </div>
+    </div>
+    <button class="btn-run" onclick="executarPython()">> Executar Script</button>
+  </div>
+
+  <!-- MOSTRA DE PROJETOS (APENAS GUETO STUDIO) -->
+  <h2 class="section-title">Projeto em Destaque</h2>
+
+  <div class="projects-grid">
+    <article class="project-card">
+      <h3 class="project-title">Gueto Studio - Cardápio & Pix</h3>
+      <p class="project-desc">
+        Aplicação web mobile-first para barbearia com visual dark/prata[cite: 5], integrada a servidor serverless na Vercel com geração automática de pagamentos Pix via Mercado Pago[cite: 6].
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">HTML5 / CSS3</span>
+        <span class="project-tag">JavaScript</span>
+        <span class="project-tag">Vercel API</span>
+        <span class="project-tag">Mercado Pago</span>
+      </div>
+      <a href="https://github.com/gugaprogramador/cardapiogueto" target="_blank" class="btn-project">Ver Repositório</a>
+    </article>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Guga Programador • Direto da Rua para o Código.</p>
+  </footer>
+
+</div>
+
+<script>
+  function executarPython() {
+    const output = document.getElementById('terminal-output');
+    output.innerHTML = "Iniciando interpretador Python...\n";
+    
+    const mensagens = [
+      "[+] Carregando competência: Python...",
+      "[+] Carregando competência: Full Stack...",
+      "[+] Carregando competência: Pix API...",
+      "[+] Carregando competência: UI/UX...",
+      "\n>>> Pronto para criar a sua próxima solução!"
+    ];
+
+    let index = 0;
+    const interval = setInterval(() => {
+      if (index < mensagens.length) {
+        output.innerHTML += mensagens[index] + "\n";
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 450);
+  }
+</script>
+
+</body>
+</html>
